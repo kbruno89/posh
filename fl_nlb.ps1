@@ -28,7 +28,7 @@ Remove-DnsServerResourceRecord -Name '$DNSX' -ZoneName '$DOMAIN' -RRType A
 
 
 echo "Insert/Insere"
-Add-DnsServerResourceRecordA -Name '$DNSX' -ZoneName '$DOMAIN' -IPv4Address 192.168.152.56
+Add-DnsServerResourceRecordA -Name '$DNSX' -ZoneName '$DOMAIN' -IPv4Address 192.168.0.X
 
 
 
