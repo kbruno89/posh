@@ -18,6 +18,11 @@ $DNSX = ''
 
 ########## UNDER CONSTRUCTION ...
 
+echo "External Validation/Consulta Externa"
+$VAR = (nslookup "$DNSA" 8.8.8.8 2> $null | findstr "Address" | where { $_ -notmatch "8.8.8.8" }) | ForEach-Object { $_.split(":")[1] } | ForEach-Object { $_.split(" ")[2] }
+$VAR
+echo "" ; echo ""
+
 
 echo "Get/Consulta"
 Get-DnsServerResourceRecord -ComputerName '$ADLOCAL' -ZoneName '$DOMAIN' -RRType A -ErrorAction:Ignore | Where-Object Hostname -eq '$DNSX'
@@ -29,6 +34,3 @@ Remove-DnsServerResourceRecord -Name '$DNSX' -ZoneName '$DOMAIN' -RRType A
 
 echo "Insert/Insere"
 Add-DnsServerResourceRecordA -Name '$DNSX' -ZoneName '$DOMAIN' -IPv4Address 192.168.0.X
-
-
-
