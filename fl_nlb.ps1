@@ -20,7 +20,7 @@ $IPX = '9.9.9.9'
 ########## UNDER CONSTRUCTION ...
 
 echo "External Validation/Consulta Externa"
-$VAR = (nslookup "$DNS" "$EXT" 2> $null | findstr "Address" | where { $_ -notmatch "$EXT" }) | ForEach-Object { $_.split(":")[1] } | ForEach-Object { $_.split(" ")[2] }
+$VAR = (nslookup '$DNS' '$EXT' 2> $null | findstr 'Address' | where { $_ -notmatch '$EXT' }) | ForEach-Object { $_.split(":")[1] } | ForEach-Object { $_.split(" ")[2] }
 $VAR
 echo "" ; echo ""
 
@@ -34,4 +34,4 @@ Remove-DnsServerResourceRecord -Name '$DNS' -ZoneName '$DOMAIN' -RRType A
 
 
 echo "Insert/Insere"
-Add-DnsServerResourceRecordA -Name '$DNS' -ZoneName '$DOMAIN' -IPv4Address "$IP A ... OR X"
+Add-DnsServerResourceRecordA -Name '$DNS' -ZoneName '$DOMAIN' -IPv4Address '$VAR'
