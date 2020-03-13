@@ -15,7 +15,7 @@ $EXT = '8.8.8.8'
 $DNS = 'xyz.com'
 $IPA = '1.1.1.1'
 ...
-$IPX = '2.2.2.2'
+$IPX = '9.9.9.9'
 
 ########## UNDER CONSTRUCTION ...
 
