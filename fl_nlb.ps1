@@ -19,7 +19,7 @@ $IPX = '9.9.9.9'
 
 ########## UNDER CONSTRUCTION ...
 
-echo "External Validation/Consulta Externa"
+echo "DNS Query/Consulta DNS"
 $VAR = (nslookup '$DNS' '$EXT' 2> $null | findstr 'Address' | where { $_ -notmatch '$EXT' }) | ForEach-Object { $_.split(":")[1] } | ForEach-Object { $_.split(" ")[2] }
 $VAR
 echo "" ; echo ""
