@@ -1,4 +1,7 @@
 # posh
 PowerShell Workarounds
 
+
 fl_nlb ->  FAILOVER DNS ROUND ROBIN (WINDOWS DNS)
+
+clear_WinSxS ->  SECURE CLEAR OF WINSXS FOLDER (FREE UP DISK SPACE C:)
