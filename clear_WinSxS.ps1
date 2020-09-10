@@ -10,7 +10,7 @@ cd\ ; cls
 $DSB = Get-PSDrive C | Select-Object @{L="FREE SPACE";E={"{0:N2}" -f ($_.Free /1GB)}}
 $DISABLED = DISM.exe /Online /English /Get-Features /Format:Table | Select-String "Disabled" | Foreach {($_ -split '\s+',4)[0]}
 
-echo "   C: Status (before script)"
+echo "   C: STATUS (before script)"
 echo $DSB
 timeout 5 > $NULL
 echo "" ; echo ""
@@ -27,7 +27,7 @@ foreach ($i in $DISABLED) {
 }
 
 echo ""
-echo "   Cleaning windows updates and service pack files..."
+echo "   Cleaning windows update and service pack files..."
 Dism.exe /online /Cleanup-Image /StartComponentCleanup > $NULL
 echo ""
 Dism.exe /online /Cleanup-Image /StartComponentCleanup /ResetBase > $NULL
@@ -36,5 +36,5 @@ Dism.exe /online /Cleanup-Image /SPSuperseded > $NULL
 echo ""
 
 $DSA = Get-PSDrive C | Select-Object @{L="FREE SPACE";E={"{0:N2}" -f ($_.Free /1GB)}}
-echo "   C: Status (after script)"
+echo "   C: STATUS (after script)"
 echo $DSA
